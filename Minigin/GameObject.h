@@ -2,10 +2,12 @@
 #include <memory>
 #include "Transform.h"
 #include <string>
+#include <list>
 
 namespace dae
 {
 	class Texture2D;
+	class Component;
 
 	// todo: this should become final.
 	class GameObject 
@@ -18,6 +20,8 @@ namespace dae
 		void SetTexture(const std::string& filename);
 		void SetPosition(float x, float y);
 		Transform* GetTransform();
+		template<typename T>
+		const T* GetComponent();
 
 		GameObject() = default;
 		virtual ~GameObject();
@@ -30,5 +34,6 @@ namespace dae
 		Transform m_transform{};
 		// todo: mmm, every gameobject has a texture? Is that correct?
 		std::shared_ptr<Texture2D> m_texture{};
+		std::list<Component*>* m_pComponents = new std::list<Component*>;
 	};
 }

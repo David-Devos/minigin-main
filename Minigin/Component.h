@@ -18,8 +18,8 @@ namespace dae
 		Component& operator=(const Component& other) = delete;
 		Component& operator=(Component&& other) = delete;
 
-		Transform* m_Transform;
-		GameObject* m_GameObject;
+		Transform* m_pTransform;
+		GameObject* m_pGameObject;
 
 	private:
 	};

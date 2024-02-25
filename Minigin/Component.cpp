@@ -1,8 +1,8 @@
 #include "Component.h"
 
-dae::Component::Component(GameObject* gameObject) : m_GameObject{gameObject}
+dae::Component::Component(GameObject* gameObject) : m_pGameObject{gameObject}
 {
-	m_Transform = m_GameObject->GetTransform();
+	m_pTransform = m_pGameObject->GetTransform();
 }
 
 dae::Component::~Component( )

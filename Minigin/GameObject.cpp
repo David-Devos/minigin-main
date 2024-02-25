@@ -1,5 +1,6 @@
 #include <string>
 #include "GameObject.h"
+#include "Component.h"
 #include "ResourceManager.h"
 #include "Renderer.h"
 
@@ -30,7 +31,19 @@ void dae::GameObject::SetPosition(float x, float y)
 	m_transform.SetPosition(x, y, 0.0f);
 }
 
-dae::Transform* dae::GameObject::GetTransform()
+ dae::Transform* dae::GameObject::GetTransform() 
 {
 	return &m_transform;
+}
+
+template<typename T>
+const T* dae::GameObject::GetComponent()
+{
+	for (const Component* currentComponent: m_pComponents)
+	{
+		if (typeid(currentComponent) == typeid(T))
+		{
+			return currentComponent;
+		}
+	}
 }
