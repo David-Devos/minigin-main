@@ -20,6 +20,8 @@ namespace dae
 		void SetTexture(const std::string& filename);
 		void SetPosition(float x, float y);
 		Transform* GetTransform();
+		void AddComponent(Component* newComponent);
+		void RemoveComponent(Component* toRemoveComponent);
 		template<typename T>
 		const T* GetComponent();
 

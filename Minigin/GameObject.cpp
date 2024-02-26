@@ -36,6 +36,22 @@ void dae::GameObject::SetPosition(float x, float y)
 	return &m_transform;
 }
 
+ void dae::GameObject::AddComponent(Component* newComponent)
+ {
+	 if (newComponent != nullptr)
+	 {
+		 m_pComponents->push_back(newComponent);
+	 }
+ }
+
+ void dae::GameObject::RemoveComponent(Component* toRemoveComponent)
+ {
+	 if (toRemoveComponent != nullptr)
+	 {
+		 m_pComponents->remove(toRemoveComponent);
+	 }
+ }
+
 template<typename T>
 const T* dae::GameObject::GetComponent()
 {
