@@ -9,13 +9,12 @@ namespace dae
 	class Texture2D;
 	class Component;
 
-	// todo: this should become final.
-	class GameObject 
+	class GameObject final
 	{
 	public:
-		virtual void Update(float deltaTime);
-		virtual void FixedUpdate();
-		virtual void Render() const;
+		void Update(float deltaTime);
+		void FixedUpdate();
+		void Render() const;
 
 		void SetTexture(const std::string& filename);
 		void SetPosition(float x, float y);
@@ -24,9 +23,11 @@ namespace dae
 		void RemoveComponent(Component* toRemoveComponent);
 		template<typename T>
 		const T* GetComponent();
+		template<typename T>
+		bool HasComponent();
 
 		GameObject() = default;
-		virtual ~GameObject();
+		 ~GameObject();
 		GameObject(const GameObject& other) = delete;
 		GameObject(GameObject&& other) = delete;
 		GameObject& operator=(const GameObject& other) = delete;

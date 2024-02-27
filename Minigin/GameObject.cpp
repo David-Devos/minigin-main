@@ -63,3 +63,9 @@ const T* dae::GameObject::GetComponent()
 		}
 	}
 }
+
+template<typename T>
+bool dae::GameObject::HasComponent()
+{
+	return GetComponent<T>() != nullptr;
+}

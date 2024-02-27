@@ -1,14 +1,14 @@
 #pragma once
 #include <string>
 #include <memory>
-#include "GameObject.h"
+#include "Component.h"
 #include "Transform.h"
 
 namespace dae
 {
 	class Font;
 	class Texture2D;
-	class TextObject final : public GameObject
+	class TextObject final : public Component
 	{
 	public:
 		void Update(float deltaTime) override;
