@@ -8,6 +8,7 @@ namespace dae
 	protected:
 		Component(GameObject* gameObject);
 		Component() = default;
+		GameObject* m_pGameObject;
 
 	public:
 		virtual void Update(float deltaTime);
@@ -23,7 +24,6 @@ namespace dae
 
 	private:
 		Transform* m_pTransform;
-		GameObject* m_pGameObject;
 	};
 }
 

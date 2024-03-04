@@ -17,8 +17,12 @@ void dae::GameObject::FixedUpdate()
 
 void dae::GameObject::Render() const
 {
-	const auto& pos = m_transform.GetPosition();
-	Renderer::GetInstance().RenderTexture(*m_texture, pos.x, pos.y);
+	for (Component* component : *m_pComponents)
+	{
+		component->Render();
+	}
+	//const auto& pos = m_transform.GetPosition();
+	//Renderer::GetInstance().RenderTexture(*m_texture, pos.x, pos.y);
 }
 
 void dae::GameObject::SetTexture(const std::string& filename)
@@ -53,7 +57,7 @@ void dae::GameObject::SetPosition(float x, float y)
  }
 
 template<typename T>
-const T* dae::GameObject::GetComponent()
+ T* dae::GameObject::GetComponent()
 {
 	for (const Component* currentComponent: m_pComponents)
 	{

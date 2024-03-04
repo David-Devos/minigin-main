@@ -22,7 +22,7 @@ namespace dae
 		void AddComponent(Component* newComponent);
 		void RemoveComponent(Component* toRemoveComponent);
 		template<typename T>
-		const T* GetComponent();
+		T* GetComponent();
 		template<typename T>
 		bool HasComponent();
 
