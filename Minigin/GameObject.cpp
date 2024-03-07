@@ -56,17 +56,6 @@ void dae::GameObject::SetPosition(float x, float y)
 	 }
  }
 
-template<typename T>
- T* dae::GameObject::GetComponent()
-{
-	for (Component* currentComponent: m_pComponents)
-	{
-		if (typeid(*currentComponent) == typeid(T))
-		{
-			return static_cast<T*>(currentComponent);
-		}
-	}
-}
 
 template<typename T>
 bool dae::GameObject::HasComponent()

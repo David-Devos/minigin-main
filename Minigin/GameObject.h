@@ -39,4 +39,17 @@ namespace dae
 		std::shared_ptr<Texture2D> m_texture{};
 		std::list<Component*>* m_pComponents = new std::list<Component*>;
 	};
+
+	template<typename T>
+	T* dae::GameObject::GetComponent()
+	{
+		for (Component* currentComponent : *m_pComponents)
+		{
+			if (typeid(*currentComponent) == typeid(T))
+			{
+				return static_cast<T*>(currentComponent);
+			}
+		}
+		return nullptr;
+	}
 }
