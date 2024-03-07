@@ -6,7 +6,6 @@
 dae::FpsComponent::FpsComponent(TextComponent* textComponent): m_Fps{0}, m_pTextComponent{textComponent}
 {
 	m_pFont = ResourceManager::GetInstance().LoadFont("Lingua.otf", 18);
-	m_pTextComponent = new TextComponent{ " ",m_pFont };
 }
 
 void dae::FpsComponent::Update(float deltaTime)
