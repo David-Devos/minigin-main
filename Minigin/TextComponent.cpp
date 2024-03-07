@@ -3,6 +3,7 @@
 #include "TextComponent.h"
 #include "Renderer.h"
 #include "RenderComponent.h"
+#include "GameObject.h"
 #include "Font.h"
 #include "Texture2D.h"
 
@@ -14,7 +15,7 @@ void dae::TextComponent::Update(float /*deltaTime*/)
 {
 	if (m_pGameObject != nullptr && m_pRenderComponent == nullptr)
 	{
-		//m_pRenderComponent = m_pGameObject->GetComponent<RenderComponent>();
+		m_pRenderComponent = m_pGameObject->GetComponent<RenderComponent>();
 	}
 	if (m_needsUpdate)
 	{

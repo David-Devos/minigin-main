@@ -59,11 +59,11 @@ void dae::GameObject::SetPosition(float x, float y)
 template<typename T>
  T* dae::GameObject::GetComponent()
 {
-	for (const Component* currentComponent: m_pComponents)
+	for (Component* currentComponent: m_pComponents)
 	{
-		if (typeid(currentComponent) == typeid(T))
+		if (typeid(*currentComponent) == typeid(T))
 		{
-			return currentComponent;
+			return static_cast<T*>(currentComponent);
 		}
 	}
 }
